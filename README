@@ -10,7 +10,7 @@ Usage
 
 Install the plugin:
 
-	ruby script/plugin install http://svn.artweb-design.de/stuff/mephisto/mephisto_tag_cloud
+	ruby script/plugin install git://github.com/svenfuchs/mephisto_tag_cloud.git
 	
 Thereafter you can use a dedicated liquid tag, 'tagcloud', in your templates like this:
 
