@@ -1,0 +1,28 @@
+<style>
+  .graph {
+	  width: 910px;
+    height: 175px; 
+		position: relative;
+    font-family: "Lucida Grande", Verdana, Arial;
+  }
+  .graph li {
+    position: absolute;
+    width: 3px;
+    height: 103px;
+    bottom: 10px;
+    padding: 0 !important;
+    margin: 0 !important;
+		list-style-type: none;
+		background-color: red;
+  }
+  <% @cloud.tags.each_with_index do |tag, index| -%>   
+  #graph-1 .<%= tag.name.downcase %> { left: <%= 10 + (5 * index) %>px; }
+  <% end -%>
+</style>
+
+<ul class="graph" id="graph-1">
+	<% @cloud.tags.each_with_index do |tag, index|
+		scaled_value = ((tag.weight.to_f / @cloud.max.to_f) * 100).round * 5 %>
+    	<li class="<%= tag.name.downcase %>" style="height: <%= scaled_value %>;" title="<%= tag.name.humanize %> (<%= tag.count %> => <%= tag.weight %>)"></li>
+  <% end %>	
+</ul>
