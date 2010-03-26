@@ -12,9 +12,8 @@ class TagDrop < BaseDrop
   def to_s
     source.name
   end
-  private
-  def gsub
-    'kekse'
+  def gsub(one, two)
+    self.to_s.gsub(one, two)
   end
 end
 
